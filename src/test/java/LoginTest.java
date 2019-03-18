@@ -13,7 +13,7 @@ public class LoginTest {
     void testSuccessfulLogin() throws InterruptedException {
         driver.get("https://jira.codecool.codecanvas.hu/login.jsp");
         WebElement userName = driver.findElement(By.id("login-form-username"));
-        userName.sendKeys("user121");
+        userName.sendKeys("user12");
         WebElement userPassword = driver.findElement(By.id("login-form-password"));
         userPassword.sendKeys("CCPass123");
         WebElement loginButton = driver.findElement(By.id("login-form-submit"));
