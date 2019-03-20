@@ -35,8 +35,8 @@ public class BrowseProjectsTest {
     void testIfProjectsCanBeViewed() {
         utils.waitForLoad(driver);
         driver.findElement(By.id("browse_link")).click();
-        utils.waitForLoad(driver);
-        driver.findElement(By.id("project_view_all_link")).click();
+        utils.waitForElement(driver, "project_view_all_link_lnk");
+        driver.findElement(By.id("project_view_all_link_lnk")).click();
         utils.waitForLoad(driver);
         int rowCount = driver.findElements(By.xpath("//table[@class='aui']/tbody/tr")).size();
         assertTrue(rowCount > 0);
