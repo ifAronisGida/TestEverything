@@ -82,7 +82,7 @@ public class LoginTest {
     }
 
     @Test
-    void testIfThereIsCaptcha() throws InterruptedException {
+    void testIfCaptchaWorks() throws InterruptedException {
         driver.get("https://jira.codecool.codecanvas.hu/login.jsp");
         String actualUsername = "user12";
         String wrongPassword = "werasf323";
@@ -93,9 +93,9 @@ public class LoginTest {
             userName.sendKeys(actualUsername);
             userPassword.sendKeys(wrongPassword);
             loginButton.click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
-        assertTrue(driver.getPageSource().contains("Sorry, your userid is required to answer a CAPTCHA question correctly."));
+        assertTrue(driver.getPageSource().contains("captcha-container"));
 
 
 
