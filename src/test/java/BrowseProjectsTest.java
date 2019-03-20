@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BrowseProjectsTest {
@@ -47,6 +50,18 @@ public class BrowseProjectsTest {
         String expectedUrl = "https://jira.codecool.codecanvas.hu/projects/TOUCAN/issues/TOUCAN-40?filter=allopenissues";
         String actualUrl = driver.getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
+    }
+
+    @Test
+    void testIfAProjectIsAvailable() {
+        String projectNameToCheck = "TOUCAN";
+        driver.findElement(By.id("browse_link")).click();
+        utils.waitForElement(driver, "project_view_all_link");
+        driver.findElement(By.id("project_view_all_link")).click();
+        utils.waitForElement(driver, "project-filter-text");
+        driver.findElement(By.id("project-filter-text")).sendKeys(projectNameToCheck);
+        int rowCount = driver.findElements(By.xpath("//table[@class='aui']/tbody/tr")).size();
+        assertTrue(rowCount > 0);
     }
 
 }
