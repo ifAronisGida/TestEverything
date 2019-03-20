@@ -29,11 +29,22 @@ public class BrowseProjectsTest {
     }
 
     @Test
-    void testIfProjectsCanBeViewed() {
+    void testIfProjectsCanBeViewed() throws InterruptedException {
         driver.findElement(By.id("browse_link")).click();
-        driver.findElement(By.id("project_view_all_link_lnk")).click();
+        driver.findElement(By.id("project_view_all_link")).click();
+        Thread.sleep(1000);
         int rowCount = driver.findElements(By.xpath("//table[@class='aui']/tbody/tr")).size();
         assertTrue(rowCount > 0);
+    }
+
+    @Test
+    void testIfAProjectsDetailsCanBeViewed() {
+        driver.findElement(By.id("browse_link")).click();
+        driver.findElement(By.id("project_view_all_link_lnk")).click();
+        driver.findElement(By.linkText("TOUCAN projekt")).click();
+        String expectedUrl = "https://jira.codecool.codecanvas.hu/projects/TOUCAN/issues/TOUCAN-40?filter=allopenissues";
+        String actualUrl = driver.getCurrentUrl();
+        assertEquals(expectedUrl, actualUrl);
     }
 
 }
