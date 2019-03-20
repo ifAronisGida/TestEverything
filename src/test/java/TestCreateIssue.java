@@ -1,15 +1,16 @@
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 class TestCreateIssue {
+    By createLinkPath = By.id("create_link");
 
     private static WebDriver driver = new Driver().getDriver();
-    //WebElement createLink = driver.findElement(By.id("create_link"));
 
     @BeforeAll
     static void login() {
@@ -22,11 +23,13 @@ class TestCreateIssue {
 
     @Test
     void createIssueWithReqFieldsFilled() throws InterruptedException {
-        Thread.sleep(10000);
-        driver.findElement(By.id("create_link")).click();
+        Thread.sleep(8000);
+        WebElement createLink = driver.findElement(createLinkPath);
+        createLink.click();
         Thread.sleep(6000);
-//        driver.findElement(By.id("project-field")).sendKeys("COALA Project (COALA)");
-//        driver.findElement(By.id("issuetype-field")).sendKeys("Task");
+        driver.findElement(By.xpath("//*[@id=\"project-field\"]")).sendKeys("CO", Keys.ENTER);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"issuetype-field\"]")).sendKeys("Ta", Keys.ENTER);
         driver.findElement(By.id("summary")).sendKeys("This is an automatated test.");
         driver.findElement(By.name("jiraform")).submit();
     }
@@ -34,7 +37,8 @@ class TestCreateIssue {
     @Test
     void createIssueWithReqFieldsNotFilled() throws InterruptedException {
         Thread.sleep(10000);
-        driver.findElement(By.id("create_link")).click();
+        WebElement createLink = driver.findElement(createLinkPath);
+        createLink.click();
         Thread.sleep(6000);
 //        driver.findElement(By.id("project-field")).sendKeys("COALA Project (COALA)");
 //        driver.findElement(By.id("issuetype-field")).sendKeys("Task");
@@ -59,4 +63,10 @@ class TestCreateIssue {
 //    @Test
 //    void createCoalaSubtask(){
 //    }
+
+    @AfterAll
+    void cleanUp(){
+        driver.get("https://jira.codecool.codecanvas.hu/secure/BrowseProjects.jspa?selectedCategory=all&selectedProjectType=all");
+        driver.findElement(By.xpath("//*[@id=\"projects\"]/div/table/tbody/tr[1]/td[1]/a")).click();
+    }
 }
