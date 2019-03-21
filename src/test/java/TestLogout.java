@@ -20,7 +20,7 @@ class TestLogout {
 
     @Test
     void logoutNavigatesToRelogURL() throws InterruptedException {
-        Thread.sleep(5000);
+        utils.waitForElement(driver,"header-details-user-fullname");
         String expectedLogoutUrl ="https://jira.codecool.codecanvas.hu/secure/Logout!default.jspa?atl_token=BSF4-29UN-JXKU-E3U4_994844cd7a224e754b63728be9453777c02a6392_lin";
         driver.findElement(By.id("header-details-user-fullname")).click();
         driver.findElement(By.id("log_out")).click();
