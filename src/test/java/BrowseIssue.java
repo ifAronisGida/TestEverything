@@ -52,6 +52,7 @@ public class BrowseIssue {
         WebElement searchBox = driver.findElement(By.id("searcher-query"));
         searchBox.sendKeys(searchTerm);
         searchBox.sendKeys(Keys.RETURN);
+        utils.waitForLoad(driver);
         assertTrue(driver.getPageSource().contains("issuedetails"));
     }
 
@@ -67,5 +68,20 @@ public class BrowseIssue {
         List<WebElement> liElements = driver.findElements(By.className("issue-content-container"));
         assertTrue(liElements.size() > 2);
     }
+
+    @Test
+    void testIfAnotherProjectContainsThreeIssues() {
+        utils.waitForElement(driver, "find_link");
+        driver.findElement(By.id("find_link")).click();
+        utils.waitForElement(driver, "issues_new_search_link_lnk");
+        driver.findElement(By.id("issues_new_search_link_lnk")).click();
+        utils.waitForLoad(driver);
+        driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div[3]/div/form/div[1]/div[1]/div[1]/div[1]/div/div[1]/ul/li[1]/div[1]")).click();
+        driver.findElement(By.id("10002-1")).click();
+        List<WebElement> liElements = driver.findElements(By.className("issue-content-container"));
+        assertTrue(liElements.size() > 2);
+    }
+
+
 
 }
