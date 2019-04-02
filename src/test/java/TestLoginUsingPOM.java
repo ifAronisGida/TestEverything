@@ -29,8 +29,11 @@ public class TestLoginUsingPOM {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/invalid_login.csv", numLinesToSkip = 1)
-    void loginUnsuccessful(String userName, String password) {
+    void loginUnsuccessful(String userName, String password, String info) {
+        System.out.println("testing with " + info);
         login.loginToJira(userName, password);
         assertNotSame(login.getBASE_URL(), login.getURL());
     }
+
+
 }

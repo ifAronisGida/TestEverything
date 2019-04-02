@@ -33,11 +33,11 @@ public class JiraLogin {
     }
 
     public void writeUserName(String userName) {
-        userNameBox.sendKeys(userName);
+        if (userName != null) userNameBox.sendKeys(userName);
     }
 
     public void writePassword(String password) {
-        passwordBox.sendKeys(password);
+        if (password != null) passwordBox.sendKeys(password);
     }
 
     public void clickLogin() {
