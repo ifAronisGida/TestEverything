@@ -17,6 +17,11 @@ public class JiraLogin {
     private WebElement loginButton;
 
     private final String LOGIN_URL = "https://jira.codecool.codecanvas.hu/login.jsp";
+    private final String BASE_URL = "https://jira.codecool.codecanvas.hu/secure/Dashboard.jspa";
+
+    public String getBASE_URL() {
+        return BASE_URL;
+    }
 
     public JiraLogin() {
         driver = new Driver().getDriver();
@@ -41,6 +46,10 @@ public class JiraLogin {
 
     public String getURL() {
         return driver.getCurrentUrl();
+    }
+
+    public void closeDriver() {
+        driver.close();
     }
 
     /**
