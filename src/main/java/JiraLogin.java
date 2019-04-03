@@ -16,8 +16,6 @@ public class JiraLogin extends JiraPOM{
 
     private final String LOGIN_URL = "https://jira.codecool.codecanvas.hu/login.jsp";
 
-
-
     public JiraLogin(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -51,10 +49,9 @@ public class JiraLogin extends JiraPOM{
      */
 
     public void loginToJira(String userName, String password) {
-        this.goToLoginPage();
-        this.writeUserName(userName);
-        this.writePassword(password);
-        this.clickLogin();
+        goToLoginPage();
+        writeUserName(userName);
+        writePassword(password);
+        clickLogin();
     }
-
 }
