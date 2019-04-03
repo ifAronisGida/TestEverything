@@ -18,7 +18,9 @@ public class JiraBrowseProjects extends JiraPOM{
     }
 
     public void navigateToViewAllProjects() {
+        waitForElement(projectsNavbarButton);
         projectsNavbarButton.click();
+        waitForElement(viewAllProjectsButton);
         viewAllProjectsButton.click();
     }
 
