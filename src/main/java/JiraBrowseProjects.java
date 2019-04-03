@@ -12,6 +12,9 @@ public class JiraBrowseProjects extends JiraPOM{
     @FindBy(id = "project_view_all_link_lnk")
     private WebElement viewAllProjectsButton;
 
+    @FindBy(id = "project-filter-text")
+    private WebElement searchBox;
+
     public JiraBrowseProjects(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
@@ -22,6 +25,10 @@ public class JiraBrowseProjects extends JiraPOM{
         projectsNavbarButton.click();
         waitForElement(viewAllProjectsButton);
         viewAllProjectsButton.click();
+    }
+
+    public void writeToSearchBox(String textToWrite) {
+        searchBox.sendKeys(textToWrite);
     }
 
     public int countProjects() {
