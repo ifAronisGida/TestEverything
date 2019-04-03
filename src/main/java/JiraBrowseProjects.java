@@ -13,7 +13,7 @@ public class JiraBrowseProjects extends JiraPOM{
     private WebElement viewAllProjectsButton;
 
     public JiraBrowseProjects(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(this.driver, this);
     }
 

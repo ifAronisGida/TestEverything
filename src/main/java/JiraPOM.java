@@ -9,8 +9,8 @@ public abstract class JiraPOM {
         return driver;
     }
 
-    public JiraPOM() {
-        driver = new Driver().getDriver();
+    public JiraPOM(WebDriver driver) {
+        this.driver = driver;
     }
 
     public String getBaseUrl() {

@@ -11,7 +11,7 @@ public class TestLoginUsingPOM {
 
     @BeforeEach
     void setLogin() {
-        login = new JiraLogin();
+        login = new JiraLogin(new Driver().getDriver());
     }
 
     @AfterEach

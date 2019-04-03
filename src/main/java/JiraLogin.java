@@ -18,8 +18,8 @@ public class JiraLogin extends JiraPOM{
 
 
 
-    public JiraLogin() {
-        super();
+    public JiraLogin(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
