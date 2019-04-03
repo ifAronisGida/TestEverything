@@ -10,14 +10,10 @@ public class TestBrowseProjectsUsingPOM {
     private JiraLogin login;
 
     @BeforeEach
-    void setBrowseProjects() {
-        browseProjects = new JiraBrowseProjects();
+    void setup() {
         login = new JiraLogin();
-    }
-
-    @BeforeEach
-    void login() {
         login.loginToJira("user12", "CCPass123");
+        browseProjects = new JiraBrowseProjects(login.getDriver());
     }
 
     @AfterEach
@@ -26,7 +22,7 @@ public class TestBrowseProjectsUsingPOM {
     }
 
     @Test
-    void testIfThereIsAnyProjects() throws InterruptedException {
+    void testIfThereIsAnyProjects() {
         browseProjects.navigateToViewAllProjects();
         assertTrue(browseProjects.countProjects() > 0);
     }

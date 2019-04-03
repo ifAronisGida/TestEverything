@@ -6,21 +6,18 @@ import org.openqa.selenium.support.PageFactory;
 
 public class JiraBrowseProjects extends JiraPOM{
 
-    private WebDriver driver;
-
     @FindBy(id = "browse_link")
     private WebElement projectsNavbarButton;
 
     @FindBy(id = "project_view_all_link_lnk")
     private WebElement viewAllProjectsButton;
 
-    public JiraBrowseProjects() {
-        super();
-        PageFactory.initElements(driver, this);
+    public JiraBrowseProjects(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
 
-    public void navigateToViewAllProjects() throws InterruptedException {
-        driver.wait(1000);
+    public void navigateToViewAllProjects() {
         projectsNavbarButton.click();
         viewAllProjectsButton.click();
     }

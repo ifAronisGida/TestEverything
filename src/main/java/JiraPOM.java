@@ -5,6 +5,10 @@ public abstract class JiraPOM {
 
     private final String BASE_URL = "https://jira.codecool.codecanvas.hu/secure/Dashboard.jspa";
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public JiraPOM() {
         driver = new Driver().getDriver();
     }
