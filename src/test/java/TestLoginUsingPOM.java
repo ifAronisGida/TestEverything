@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -19,10 +20,9 @@ public class TestLoginUsingPOM {
         login.closeDriver();
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "/valid_login.csv", numLinesToSkip = 1)
-    void loginSuccessfulTest(String userName, String password) {
-        login.loginToJira(userName, password);
+    @Test
+    void loginSuccessfulTest() {
+        login.loginToJira(System.getenv("user"), System.getenv("password"));
         assertEquals(login.getBaseUrl(), login.getURL());
     }
 

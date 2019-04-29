@@ -16,7 +16,7 @@ public class TestBrowseProjectsUsingPOM {
     void setup() {
         WebDriver driver = new Driver().getDriver();
         login = new JiraLogin(driver);
-        login.loginToJira("user12", "CoolCanvas19.");
+        login.loginToJira(System.getenv("user"), System.getenv("password"));
         browseProjects = new JiraBrowseProjects(driver);
     }
 
