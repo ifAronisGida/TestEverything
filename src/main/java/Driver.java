@@ -1,6 +1,12 @@
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Driver {
 
@@ -10,12 +16,11 @@ public class Driver {
         return driver;
     }
 
-    public Driver() {
-        System.setProperty("webdriver.chrome.driver", System.getenv("driverPath"));
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("--no-sandbox");
-        driver = new ChromeDriver();
+    public Driver() throws MalformedURLException {
+        DesiredCapabilities capability = DesiredCapabilities.chrome();
+        capability.setBrowserName("chrome");
+        capability.setPlatform(Platform.WIN10);
+        driver = new RemoteWebDriver(new URL("http://192.168.163.173:8888/wd/hub/") , capability);
     }
 
 }

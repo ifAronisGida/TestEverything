@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import java.net.MalformedURLException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestLoginUsingPOM {
@@ -11,7 +13,7 @@ public class TestLoginUsingPOM {
     private JiraLogin login;
 
     @BeforeEach
-    void setLogin() {
+    void setLogin() throws MalformedURLException {
         login = new JiraLogin(new Driver().getDriver());
     }
 
