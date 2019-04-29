@@ -21,14 +21,14 @@ public class TestLoginUsingPOM {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/valid_login.csv", numLinesToSkip = 1)
-    void loginSuccessful(String userName, String password) {
+    void loginSuccessfulTest(String userName, String password) {
         login.loginToJira(userName, password);
         assertEquals(login.getBaseUrl(), login.getURL());
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/invalid_login.csv", numLinesToSkip = 1)
-    void loginUnsuccessful(String userName, String password, String info) {
+    void loginUnsuccessfulTest(String userName, String password, String info) {
         System.out.println("testing with " + info);
         login.loginToJira(userName, password);
         assertNotSame(login.getBaseUrl(), login.getURL());
