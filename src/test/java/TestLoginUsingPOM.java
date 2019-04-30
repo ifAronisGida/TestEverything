@@ -28,6 +28,8 @@ public class TestLoginUsingPOM {
         assertEquals(login.getBaseUrl(), login.getURL());
     }
 
+    /*
+
     @ParameterizedTest
     @CsvFileSource(resources = "/invalid_login.csv", numLinesToSkip = 1)
     void loginUnsuccessfulTest(String userName, String password, String info) {
@@ -35,6 +37,8 @@ public class TestLoginUsingPOM {
         login.loginToJira(userName, password);
         assertNotSame(login.getBaseUrl(), login.getURL());
     }
+
+     */
 
 
 }
