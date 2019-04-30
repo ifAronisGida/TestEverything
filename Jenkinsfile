@@ -1,10 +1,9 @@
 def runTest(testName) {
 
-
     sh "mvn -e -Dbrowser=${browser} -Duser=${user} -Dpassword=${password} -DtestUrl=${testUrl} -Dtest=" + testName + " clean test"
 }
 
-    pipeline {
+pipeline {
 
         agent any
 
@@ -25,7 +24,7 @@ def runTest(testName) {
                 }
             }
         }
-    }
+
 
     post {
         always {
