@@ -19,7 +19,7 @@ public class Driver {
     public Driver() throws MalformedURLException {
         DesiredCapabilities capability = DesiredCapabilities.chrome();
         capability.setBrowserName("chrome");
-        capability.setPlatform(Platform.WIN10);
+        capability.setPlatform(Platform.LINUX);
         driver = new RemoteWebDriver(new URL(System.getenv("testUrl")) , capability);
     }
 
