@@ -20,7 +20,7 @@ public class Driver {
         DesiredCapabilities capability = DesiredCapabilities.chrome();
         capability.setBrowserName("chrome");
         capability.setPlatform(Platform.WIN10);
-        driver = new RemoteWebDriver(new URL("http://192.168.163.173:8888/wd/hub/") , capability);
+        driver = new RemoteWebDriver(new URL(System.getenv("testUrl")) , capability);
     }
 
 }

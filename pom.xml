@@ -34,6 +34,7 @@
                         <driverPath>${driverPath}</driverPath>
                         <user>${user}</user>
                         <password>${password}</password>
+                        <testUrl>${testUrl}</testUrl>
                     </environmentVariables>
                 </configuration>
             </plugin>
