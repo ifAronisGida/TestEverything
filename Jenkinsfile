@@ -18,18 +18,13 @@ def runTest(testName) {
         }
 
         stages {
-            stage ("Get source") {
-                steps {
-                    git branch: 'CI', url: 'https://github.com/ifAronisGida/TestEverything.git'
-                }
-            }
-
 
             stage ("Run smoke test") {
                 steps {
                     runTest(loginTest)
                 }
             }
+        }
     }
 
     post {
