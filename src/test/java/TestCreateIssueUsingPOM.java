@@ -14,7 +14,6 @@ public class TestCreateIssueUsingPOM {
 
     private JiraLogin login;
     private JiraCreateIssue createIssue;
-    private WebDriver driver;
 
     @BeforeEach
     void setup() throws MalformedURLException {
