@@ -31,4 +31,11 @@ public abstract class JiraPOM {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitForElementClickable(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void waitForElementLoaded(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
 }
