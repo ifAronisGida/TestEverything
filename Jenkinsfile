@@ -18,6 +18,8 @@ pipeline {
 
         stages {
 
+            parallel
+
             stage ("Run smoke test") {
                 steps {
                     runTest(loginTest)

@@ -33,11 +33,10 @@ public class TestBrowseProjectsUsingPOM {
         assertTrue(browseProjects.countProjects() > 0);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "/project_names.csv", numLinesToSkip = 1)
-    void testIfProjectExists(String projectName) {
+    @Test
+    void testIfProjectExists() {
         browseProjects.navigateToViewAllProjects();
-        browseProjects.writeToSearchBox(projectName);
+        browseProjects.writeToSearchBox("COALA");
         assertTrue(browseProjects.countProjects() > 0);
     }
 }
