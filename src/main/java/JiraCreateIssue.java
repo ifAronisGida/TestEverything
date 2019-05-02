@@ -74,8 +74,7 @@ public class JiraCreateIssue extends JiraPOM{
     }
 
     private void selectFromDropdown(WebElement element, String select) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-
+        waitForElementClickable(element);
         element.sendKeys(select);
 
         if (!element.getAttribute("aria-activedescendant").equals("null")) {
@@ -97,6 +96,7 @@ public class JiraCreateIssue extends JiraPOM{
     }
 
     void createNewIssue(String projectName, String issueName, String summary) {
+        clickCreateButton();
         selectFromDropdown(projectField, projectName);
         selectFromDropdown(issueTypeField, issueName);
         fillInSummaryField(summary);
