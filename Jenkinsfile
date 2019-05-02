@@ -26,7 +26,7 @@ pipeline {
             }
             stage ("Run browse project test") {
                 steps {
-                    runtest(browseTest)
+                    runTest(browseTest)
                 }
             }
         }
