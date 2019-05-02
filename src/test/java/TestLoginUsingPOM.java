@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.net.MalformedURLException;
 
@@ -11,14 +9,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestLoginUsingPOM {
 
     private JiraLogin login;
+    private JiraLogout logout;
 
     @BeforeEach
     void setLogin() throws MalformedURLException {
         login = new JiraLogin(new Driver().getDriver());
+        logout = new JiraLogout(login.getDriver());
     }
 
     @AfterEach
     void closeDriver() {
+        logout.logout();
         login.closeDriver();
     }
 

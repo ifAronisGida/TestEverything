@@ -23,9 +23,4 @@ public class JiraLogout extends JiraPOM {
         userAvatar.click();
         logoutButton.click();
     }
-
-    public boolean validateLogout() {
-       return logoutHeader.getText().equals("Logout");
-    }
-
 }
