@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class JiraPOM {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    WebDriver driver;
+    WebDriverWait wait;
 
     private final String BASE_URL = "https://jira.codecool.codecanvas.hu/secure/Dashboard.jspa";
 
@@ -28,15 +28,15 @@ public abstract class JiraPOM {
         driver.close();
     }
 
-    public void waitForElement(WebElement element) {
+    void waitForElement(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForElementClickable(WebElement element){
+    void waitForElementClickable(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForTextToBe(By element, String expected){
+    void waitForTextToBe(By element, String expected){
         wait.until(ExpectedConditions.textToBe(element, expected));
     }
 }

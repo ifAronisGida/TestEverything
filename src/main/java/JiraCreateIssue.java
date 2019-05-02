@@ -13,55 +13,55 @@ import java.util.*;
 public class JiraCreateIssue extends JiraPOM{
 
     @FindBy(id = "create_link")
-    WebElement createButton;
+    private WebElement createButton;
 
     @FindBy(id = "create-issue-submit")
-    WebElement submitIssueButton;
+    private WebElement submitIssueButton;
 
     @FindBy(xpath = "//a[@class='cancel']")
-    WebElement cancelButton;
+    private WebElement cancelButton;
 
     @FindBy(id = "qf-create-another")
-    WebElement createAnotherCheckbox;
+    private WebElement createAnotherCheckbox;
 
     @FindBy(id = "summary")
-    WebElement summaryField;
+    private WebElement summaryField;
 
     @FindBy(id = "project-field")
-    WebElement projectField;
+    private WebElement projectField;
 
     @FindBy(id = "issuetype-field")
-    WebElement issueTypeField;
+    private WebElement issueTypeField;
 
     @FindBy(id = "aui-flag-container")
-    WebElement conformationContainer;
+    private WebElement conformationContainer;
 
     @FindBy(xpath = "//div[@class='aui-message-context']//a")
-    WebElement conformationForCreateAnother;
+    private WebElement conformationForCreateAnother;
 
     @FindBy(xpath = "//div[@class='error']")
-    WebElement errorMessage;
+    private WebElement errorMessage;
 
     @FindBy(id = "find_link")
-    WebElement issues;
+    private WebElement issues;
 
     @FindBy(id = "find_link-content")
-    WebElement searchForIssuesContainer;
+    private WebElement searchForIssuesContainer;
 
     @FindBy(id = "issues_new_search_link_lnk")
-    WebElement searchForIssuesLink;
+    private WebElement searchForIssuesLink;
 
     @FindBy(id = "searcher-query")
-    WebElement searchField;
+    private WebElement searchField;
 
     @FindBy(xpath = "//*[@id='delete-issue']/a")
-    WebElement deleteLink;
+    private WebElement deleteLink;
 
     @FindBy(id = "delete-issue-submit")
-    WebElement deleteButtonOnPopup;
+    private WebElement deleteButtonOnPopup;
 
     @FindBy(id = "opsbar-operations_more")
-    WebElement moreOperationsButton;
+    private WebElement moreOperationsButton;
 
     public JiraCreateIssue(WebDriver driver) {
         super(driver);
@@ -73,7 +73,7 @@ public class JiraCreateIssue extends JiraPOM{
         waitForElement(submitIssueButton);
     }
 
-    void selectFromDropdown(WebElement element, String select) {
+    private void selectFromDropdown(WebElement element, String select) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
 
         element.sendKeys(select);
@@ -85,12 +85,12 @@ public class JiraCreateIssue extends JiraPOM{
             }
         }
 
-    void fillInSummaryField(String summary) {
+    private void fillInSummaryField(String summary) {
         waitForElementClickable(summaryField);
         summaryField.sendKeys(summary);
     }
 
-    void fillInSearchField(String issue){
+    private void fillInSearchField(String issue){
         waitForElementClickable(searchField);
         searchField.sendKeys(issue);
         searchField.sendKeys(Keys.ENTER);
@@ -143,7 +143,7 @@ public class JiraCreateIssue extends JiraPOM{
         }
     }
 
-    void navigateToSearchForIssues() {
+    private void navigateToSearchForIssues() {
         driver.navigate().to("https://jira.codecool.codecanvas.hu/secure/Dashboard.jspa");
         issues.click();
 

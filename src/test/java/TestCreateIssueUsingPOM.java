@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.net.MalformedURLException;
@@ -13,7 +14,6 @@ public class TestCreateIssueUsingPOM {
 
     private JiraLogin login;
     private JiraCreateIssue createIssue;
-
     private WebDriver driver;
 
     @BeforeEach
