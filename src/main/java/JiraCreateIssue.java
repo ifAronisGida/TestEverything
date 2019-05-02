@@ -107,6 +107,7 @@ public class JiraCreateIssue extends JiraPOM{
     String getProjectTypes(String projectName, List<String> requiredIssueTypes) {
         List<String> actualResults = new ArrayList<>();
 
+        clickCreateButton();
         selectFromDropdown(projectField, projectName);
 
         for (String issueType: requiredIssueTypes) {

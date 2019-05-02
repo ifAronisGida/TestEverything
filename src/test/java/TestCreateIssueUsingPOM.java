@@ -50,8 +50,7 @@ public class TestCreateIssueUsingPOM {
     @CsvFileSource(resources = "/create_issue_project_with_types.csv", numLinesToSkip = 1)
     void testProjectHasAllRequiredTypes(String projectName) {
         ArrayList<String> expectedTypes = new ArrayList<>(
-                Arrays.asList("Story", "Task", "Bug", "Sub-task"));
-
+                Arrays.asList("Story", "Task", "Bug"));
         String actualResult = createIssue.getProjectTypes(projectName, expectedTypes);
         assertEquals(expectedTypes.toString(), actualResult);
     }
