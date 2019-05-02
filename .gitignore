@@ -88,7 +88,7 @@ fabric.properties
 
 # sensitive information #
 
-*.csv
+
 valid_login.csv
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
