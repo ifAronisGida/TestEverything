@@ -9,14 +9,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestLoginUsingPOM {
 
     private JiraLogin login;
+    private JiraLogout logout;
 
     @BeforeEach
     void setLogin() throws MalformedURLException {
         login = new JiraLogin(new Driver().getDriver());
+        logout = new JiraLogout(login.getDriver());
     }
 
     @AfterEach
     void closeDriver() {
+        logout.logout();
         login.closeDriver();
     }
 
