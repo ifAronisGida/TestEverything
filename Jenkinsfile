@@ -13,16 +13,20 @@ pipeline {
             testUrl = 'http://selenium:CoolCanvas19.@seleniumhub.codecool.codecanvas.hu:4444/wd/hub'
             browser = 'chrome'
             loginTest = 'TestLoginUsingPOM'
+            browseTest = 'TestBrowseProjectsUsingPOM'
 
         }
 
         stages {
 
-            parallel
-
             stage ("Run smoke test") {
                 steps {
                     runTest(loginTest)
+                }
+            }
+            stage ("Run browse project test") {
+                steps {
+                    runtest(browseTest)
                 }
             }
         }
