@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -35,7 +36,7 @@ public abstract class JiraPOM {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForElementLoaded(WebElement element){
-        wait.until(ExpectedConditions.visibilityOf(element));
+    public void waitForTextToBe(By element, String expected){
+        wait.until(ExpectedConditions.textToBe(element, expected));
     }
 }
