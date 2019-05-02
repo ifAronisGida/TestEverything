@@ -40,6 +40,9 @@ public class TestCreateIssueUsingPOM {
     @ParameterizedTest
     @CsvFileSource(resources = "/create_issue_fail.csv", numLinesToSkip = 1)
     void testUnsuccessfulIssueCreationWithEmptySummary(String projectName, String issueType, String summary) {
+        if (summary == null){
+            summary = "";
+        }
         createIssue.createNewIssue(projectName, issueType, summary);
         assertTrue(createIssue.validateEmptySummaryError());
     }
