@@ -25,14 +25,18 @@ pipeline {
                     runTest(loginTest)
                 }
             }
-            stage ("Run browse project test") {
-                steps {
-                    runTest(browseTest)
+            parallel {
+
+                stage ("Run browse project test") {
+                    steps {
+                        runTest(browseTest)
+                    }
                 }
-            }
-            stage ("Run all tests") {
-                steps {
-                    runTest(createIssueTest)
+
+                stage ("Run create issue tests") {
+                    steps {
+                        runTest(createIssueTest)
+                    }
                 }
             }
         }

@@ -69,6 +69,7 @@ public class JiraCreateIssue extends JiraPOM{
     }
 
     void clickCreateButton(){
+        waitForElement(createButton);
         createButton.click();
         waitForElement(submitIssueButton);
     }
@@ -124,7 +125,8 @@ public class JiraCreateIssue extends JiraPOM{
         return actualResults.toString();
     }
 
-    boolean validateSuccessfulIssueCreation() {
+    boolean
+    validateSuccessfulIssueCreation() {
         try {
             waitForElement(conformationContainer);
             return true;
